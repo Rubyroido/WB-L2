@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Угадай число</title>
+</head>
+
+<body>
+    <h1>Угадай число</h1>
+    <p>От 1 до <span contentEditable="true" class="max-num">100</span></p>
+    <form class="form">
+        <input type="text" name="" id="" placeholder="Введите число" class="input">
+        <button type="submit" class="submit-button">Угадать</button>
+    </form>
+    <button type="button" class="restart-button" style="margin-top: 15px;">Начать заново</button>
+
+    <ul class="output">
+        <span>Количество попыток: <span class="attempts-num"></span></span>
+    </ul>
+
+    <script type="module" src="./js/main.js" defer></script>
+</body>
+
+</html>
