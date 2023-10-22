@@ -4,6 +4,7 @@ const input = document.querySelector('.input');
 const form = document.querySelector('.form');
 const restartButton = document.querySelector('.restart-button');
 const attemptsNum = document.querySelector('.attempts-num');
+const hint = document.querySelector('.hint');
 
 let max = parseInt(maxNum.textContent);
 let randomNum;
@@ -42,6 +43,7 @@ function handleGuess(num) {
 form.addEventListener('submit', (e) => {
 	e.preventDefault();
 	handleGuess(parseInt(input.value));
+	input.value = '';
 	countAttempts();
 })
 
@@ -60,4 +62,7 @@ function restart() {
 function countAttempts() {
 	attempts++
 	attemptsNum.textContent = attempts;
+	if(attempts === 3) {
+		hint.textContent = randomNum%2===0?'Число четное':'Число нечетное';
+	}
 }
