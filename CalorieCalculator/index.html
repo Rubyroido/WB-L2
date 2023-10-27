@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор калорий</title>
+    <link rel="stylesheet" href="./assets/style.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="buttons-container">
+            <button class="header-button button-limit">Установить дневной лимит</button>
+            <button class="header-button button-add">Добавить продукт</button>
+            <button class="header-button button-clear">Очистить таблицу</button>    
+        </div>
+        <input type="text" name="" id="" placeholder="фильтр по названию" class="filter">
+    </header>
+    <main class="main">
+        <table class="table">
+            <thead class="thead">
+                <th><button class="th-button" id="name">Продукты</button></th>
+                <th><button class="th-button" id="calories">Калории</button></th>
+                <th><button class="th-button" id="proteins">Белки</button></th>
+                <th><button class="th-button" id="fats">Жиры</button></th>
+                <th><button class="th-button" id="carbs">Углеводы</button></th>
+                <th></th>
+            </thead>
+            <tbody class="tbody"></tbody>
+        </table>
+    </main>
+    <footer class="footer">
+        <ul class="total-container">
+            <li><span>Итого</span></li>
+            <li><span class="calories"></span></li>
+            <li><span class="proteins"></span></li>
+            <li><span class="fats"></span></li>
+            <li><span class="carbs"></span></li>
+            <button class="button-chart">График</button>
+        </ul>
+        <div class="limit-container">
+            <span>Дневной лимит калорий:</span>
+            <div class="footer-cals">
+                <span class="total-calories"></span>/<span class="max-calories"></span> Ккал
+            </div>
+        </div>
+    </footer>
+
+    <dialog class="popup-add">
+        <form method="dialog" class="form">
+            <input type="text" name="name" id="" placeholder="Продукт" class="input" required>
+            <input type="number" name="calories" id="" placeholder="Калорийность" class="input" required>
+            <input type="number" name="proteins" id="" placeholder="Белки" class="input" required>
+            <input type="number" name="fats" id="" placeholder="Жиры" class="input" required>
+            <input type="number" name="carbs" id="" placeholder="Углеводы" class="input" required>
+            <div class="buttons">
+                <button type="button" class="button-close">Закрыть</button>
+                <button type="submit" class="button-submit">Создать</button>
+            </div>
+        </form>
+    </dialog>
+
+    <dialog class="popup-limit">
+        <form method="dialog" class="form">
+            <input type="number" name="max-calories" id="" placeholder="Введите лимит калорий на день" class="input"
+                required>
+            <div class="buttons">
+                <button type="button" class="button-close">Закрыть</button>
+                <button type="submit" class="button-submit">Сохранить</button>
+            </div>
+        </form>
+    </dialog>
+
+    <dialog class="popup-diagram">
+        <h2>График БЖУ</h2>
+        <div class="columns">
+            <div class="column column-proteins"></div>
+            <div class="column column-fats"></div>
+            <div class="column column-carbs"></div>
+        </div>
+        <div class="legend">
+            <span>Белки</span>
+            <span>Жиры</span>
+            <span>Углеводы</span>
+        </div>
+        <button class="button-close">Закрыть</button>
+    </dialog>
+
+    <template class="template">
+        <tr class="row">
+            <td class="cell" data="name"></td>
+            <td class="cell" data="calories"></td>
+            <td class="cell" data="proteins"></td>
+            <td class="cell" data="fats"></td>
+            <td class="cell" data="carbs"></td>
+            <td class="cell"><button class="button-delete">Удалить</button></td>
+        </tr>
+    </template>
+    <script src="./main/main.js" defer></script>
+</body>
+
+</html>
