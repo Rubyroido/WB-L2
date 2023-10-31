@@ -33,17 +33,21 @@ imgInput.addEventListener('change', (e) => {
 textForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const input = textForm.querySelector('.add-text');
+    const colorSelect = textForm.querySelector('.color-select');
+    const fontSelect = textForm.querySelector('.font-select');
     const text = input.value;
-    drawText(text);
+    const color = colorSelect.value;
+    const font = fontSelect.value;
+    drawText(text, color, font);
     input.value = '';
 })
 
-function drawText(text) {
+function drawText(text, color, font) {
     const startingX = canvas.width / 2;
     const startingY = canvas.height / 2;
 
-    context.fillStyle = "blue";
-    context.font = `${canvas.height * 0.1}px Arial`;
+    context.fillStyle = `${color}`;
+    context.font = `${canvas.height * 0.1}px ${font}`;
     context.textAlign = 'center';
     context.textBaseline = 'middle';
     context.fillText(text, startingX, startingY, (canvas.width * 0.7));
@@ -57,6 +61,8 @@ function drawText(text) {
         y: startingY,
         width: textWidth,
         height: textHeight,
+        color: color,
+        font: font
     });
     console.log(texts)
 }
@@ -71,6 +77,8 @@ function redraw() {
 }
 
 function redrawText(data) {
+    context.fillStyle = `${data.color}`;
+    context.font = `${canvas.height * 0.1}px ${data.font}`;
     context.fillText(data.text, data.x, data.y)
 }
 
